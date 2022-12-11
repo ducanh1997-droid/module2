@@ -13,7 +13,6 @@ public class countString {
             if(value.equals(charInString)){
                 count++;
             }
-            
         }
         System.out.println("Số lượng ký tự "+ charInString+"trong chuỗi là:"+ count);
     }
