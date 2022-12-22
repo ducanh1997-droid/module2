@@ -1,5 +1,6 @@
 package minitest2;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ public class StudentManager {
     public Student[] getStudents() {
         return students;
     }
-    public void createListStudent(){
+    public void createListStudent(ArrayList<Classroom> classroom){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập n số lượng sinh viên:");
         int n = Integer.parseInt(scanner.nextLine());
@@ -27,7 +28,9 @@ public class StudentManager {
             String address = scanner.nextLine();
             System.out.println("Nhập điểm trung bình sinh viên thứ "+ (i+1));
             double average = Double.parseDouble(scanner.nextLine());
-            students[i] = new Student((INDEX+1),name,age,gender,address,average);
+            System.out.println("Nhập ");
+//          Classroom classroom = new Classroom("C1022i1");
+            students[i] = new Student((INDEX+1),name,age,gender,address,average,classroom.get(0));
             INDEX++;
         }
     }
@@ -38,6 +41,7 @@ public class StudentManager {
         System.out.printf("%-20s%s",students[index].getGender()," ");
         System.out.printf("%-20s%s",students[index].getAddress()," ");
         System.out.printf("%-20s%s",students[index].getAverage()," ");
+        System.out.printf("%-20s%s",students[index].getClassRoom().getName()," ");
         System.out.println();
     }
     public void displayAllStudent(Student[] students){
@@ -52,6 +56,7 @@ public class StudentManager {
                     System.out.printf("%-20s%s","Giới tính"," ");
                     System.out.printf("%-20s%s","Địa chỉ"," ");
                     System.out.printf("%-20s%s","Điểm trung bình"," ");
+                    System.out.printf("%-20s%s","Lớp"," ");
                     System.out.println();
                 }
                 createStudent(i,students);
@@ -90,6 +95,7 @@ public class StudentManager {
         }
     }
     public void addStudent(){
+        Classroom classroom = new Classroom("C1022i1");
         Scanner scanner = new Scanner(System.in);
         Student[] temp;
         temp = students;
@@ -106,7 +112,7 @@ public class StudentManager {
         double average = Double.parseDouble(scanner.nextLine());
         for(int i = 0;i<students.length;i++){
             if(i == students.length-1){
-                students[i] = new Student((INDEX+1),name,age,gender,address,average);
+                students[i] = new Student((INDEX+1),name,age,gender,address,average,classroom);
                 INDEX++;
             }else{
                 students[i]=temp[i];

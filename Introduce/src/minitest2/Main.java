@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         StudentManager studentManager = new StudentManager();
-        studentManager.createListStudent();
-
+        ClassroomManager classroomManager = new ClassroomManager();
+        classroomManager.addClassroom();
+        classroomManager.addClassroom();
+        studentManager.createListStudent(classroomManager.getClassRooms());
         Scanner scanner = new Scanner(System.in);
         do{
             System.out.println("1.Hiểm thị tất cả sinh viên");

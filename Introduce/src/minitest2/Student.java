@@ -8,16 +8,20 @@ public class Student {
     private double average;
 
     private int id = 0;
+
+
+    private Classroom classRoom;
     public Student(){
 
     }
-    public Student(int id,String name, int age, String gender, String address, double average) {
+    public Student(int id,String name, int age, String gender, String address, double average, Classroom classRoom) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.address = address;
         this.average = average;
+        this.classRoom = classRoom;
     }
 
     public int getId() {
@@ -66,6 +70,14 @@ public class Student {
 
     public void setAverage(double average) {
         this.average = average;
+    }
+
+    public Classroom getClassRoom() {
+        return classRoom;
+    }
+
+    public void setClassRoom(Classroom classRoom) {
+        this.classRoom = classRoom;
     }
 
     @Override
